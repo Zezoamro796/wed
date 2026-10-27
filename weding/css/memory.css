@@ -1,0 +1,646 @@
+/* ==========================================================================
+   صفحة الذكريات والتهاني | Yousef & Norhan Memory Wall
+   Password Protected Portal & Guestbook Display
+   ========================================================================== */
+
+/* Password Gate Screen */
+.password-gate-container {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.password-gate-card {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 50px 35px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  border: 1.5px solid rgba(203, 161, 53, 0.45);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.gate-lock-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1b2c21 0%, #101c15 100%);
+  border: 2px solid var(--color-accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-light);
+  box-shadow: 0 8px 25px rgba(203, 161, 53, 0.3);
+}
+
+.gate-title {
+  font-family: var(--font-arabic-serif);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.gate-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.password-input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.gate-input {
+  width: 100%;
+  padding: 14px 45px 14px 20px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(203, 161, 53, 0.4);
+  font-size: 1.1rem;
+  text-align: center;
+  font-family: var(--font-english-display), var(--font-arabic-sans);
+  letter-spacing: 2px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.gate-input:focus {
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 0 0 4px rgba(203, 161, 53, 0.2);
+}
+
+.gate-input.shake {
+  animation: shakeError 0.45s ease-in-out;
+  border-color: #d92525 !important;
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-10px); }
+  40%, 80% { transform: translateX(10px); }
+}
+
+.toggle-password-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gate-hint {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.gate-hint span {
+  color: var(--color-accent-gold);
+  font-weight: 700;
+  direction: ltr;
+  display: inline-block;
+}
+
+.gate-back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.gate-back-link:hover {
+  color: var(--color-accent-gold);
+}
+
+/* ==========================================================================
+   Unlocked Memory Dashboard
+   ========================================================================== */
+.memory-content-area {
+  padding: 100px 0 60px;
+}
+
+.memory-header-banner {
+  background: linear-gradient(135deg, #18281f 0%, #0d1611 100%);
+  border-radius: 24px;
+  border: 1px solid var(--color-accent-gold);
+  padding: 35px 30px;
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-header-banner::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(203, 161, 53, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.memory-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 18px;
+}
+
+.btn-back-invitation {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-gold-light);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s;
+}
+
+.btn-back-invitation:hover {
+  transform: translateX(4px);
+}
+
+.session-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-session-lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-session-lock:hover {
+  background: rgba(217, 37, 37, 0.2);
+  border-color: #d92525;
+}
+
+.memory-hero-info {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.memory-hero-title {
+  font-family: var(--font-arabic-serif);
+  font-size: 2.2rem;
+  color: var(--color-gold-light);
+  margin-bottom: 8px;
+}
+
+.memory-hero-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 25px;
+}
+
+/* Stats Counter Grid */
+.memory-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 650px;
+  margin: 0 auto 10px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(203, 161, 53, 0.3);
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--font-english-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Controls Toolbar (Search & Export) */
+.memory-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.memory-search-box {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.memory-search-box svg {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--color-text-muted);
+}
+
+.memory-search-input {
+  width: 100%;
+  padding: 12px 42px 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(203, 161, 53, 0.3);
+  background: #fff;
+  font-family: var(--font-arabic-sans);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.memory-search-input:focus {
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 0 0 3px rgba(203, 161, 53, 0.15);
+}
+
+.memory-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(203, 161, 53, 0.35);
+  background: #fff;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-tool:hover {
+  background: var(--color-primary);
+  color: var(--color-gold-light);
+  border-color: var(--color-primary);
+}
+
+.btn-tool svg {
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   Memory Cards Wall
+   ========================================================================== */
+.memory-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.memory-card {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 26px;
+  border: 1px solid rgba(203, 161, 53, 0.28);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-gold);
+}
+
+.memory-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.guest-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guest-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e3124 0%, #121f17 100%);
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--font-arabic-serif);
+  flex-shrink: 0;
+}
+
+.guest-meta h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.guest-relation-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(203, 161, 53, 0.14);
+  color: var(--color-gold-dark);
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-card-del {
+  background: none;
+  border: none;
+  color: #adb5bd;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-card-del:hover {
+  color: #d92525;
+  background: rgba(217, 37, 37, 0.1);
+}
+
+.memory-card-body {
+  margin-bottom: 20px;
+  font-size: 1.02rem;
+  color: var(--color-text-main);
+  line-height: 1.75;
+  position: relative;
+  padding: 4px 6px;
+}
+
+.memory-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 12px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.memory-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Empty State */
+.empty-memory-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--color-card-bg);
+  border-radius: 20px;
+  border: 1px dashed rgba(203, 161, 53, 0.4);
+  grid-column: 1 / -1;
+}
+
+.empty-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #f4efe6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-gold);
+}
+
+/* Responsive Adaptations for Memory Page */
+@media (max-width: 768px) {
+  .memory-content-area {
+    padding: 85px 0 50px;
+  }
+
+  .password-gate-container {
+    padding: 24px 14px;
+    min-height: 80vh;
+  }
+
+  .password-gate-card {
+    padding: 35px 20px;
+    border-radius: 22px;
+  }
+
+  .gate-lock-icon {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 16px;
+  }
+
+  .gate-title {
+    font-size: clamp(1.45rem, 5.5vw, 1.85rem);
+  }
+
+  .gate-desc {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+
+  .gate-input {
+    font-size: 16px !important;
+    padding: 13px 40px 13px 14px;
+  }
+
+  .memory-header-banner {
+    padding: 24px 16px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+  }
+
+  .memory-top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+
+  .session-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .memory-hero-title {
+    font-size: clamp(1.45rem, 5.5vw, 2rem);
+  }
+
+  .memory-hero-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+  }
+
+  .memory-stats-grid {
+    gap: 8px;
+  }
+
+  .stat-item {
+    padding: 12px 6px;
+    border-radius: 12px;
+  }
+
+  .stat-num {
+    font-size: clamp(1.3rem, 5vw, 1.65rem);
+  }
+
+  .stat-label {
+    font-size: clamp(0.7rem, 2.5vw, 0.78rem);
+  }
+
+  .memory-toolbar {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .memory-search-box {
+    width: 100%;
+  }
+
+  .memory-search-input {
+    font-size: 16px !important;
+    padding: 12px 38px 12px 14px;
+  }
+
+  .memory-toolbar-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .btn-tool {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .memory-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .memory-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .memory-card-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .memory-toolbar-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print Styling */
+@media print {
+  .site-header, .memory-toolbar, .session-actions, .btn-card-del, #particlesCanvas, .floating-music-btn, .site-footer {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .memory-content-area {
+    padding: 0 !important;
+  }
+  .memory-header-banner {
+    background: none !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+  }
+  .memory-hero-title, .memory-hero-subtitle, .stat-num, .stat-label {
+    color: #000 !important;
+  }
+  .memory-card {
+    break-inside: avoid;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+}

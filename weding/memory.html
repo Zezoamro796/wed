@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>سجل الذكريات والتهاني | يوسف & نورهان</title>
+  
+  <meta name="theme-color" content="#121d16">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/memory.css">
+</head>
+<body style="background-color: var(--color-bg-ivory);">
+
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="site-header scrolled">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-monogram">
+        <div class="monogram-mini">Y&N</div>
+        <span class="brand-text">يوسف & نورهان</span>
+      </a>
+
+      <a href="index.html" class="btn-cal btn-cal-ics" style="text-decoration: none; padding: 8px 14px; font-size: 0.85rem;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>العودة للدعوة</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. شاشة القفل وإدخال كلمة المرور (Password Gate) -->
+    <section id="passwordGateScreen" class="password-gate-container">
+      <div class="password-gate-card">
+        <div class="gate-lock-icon">
+          <svg viewBox="0 0 24 24" width="38" height="38" fill="currentColor">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+          </svg>
+        </div>
+
+        <h1 class="gate-title">سجل الذكريات للعروسين</h1>
+        <p class="gate-desc">
+          هذه الصفحة مخصصة لعرض رسائل وتهاني الأحباب. يرجى إدخال كلمة المرور للمتابعة.
+        </p>
+
+        <form id="passwordGateForm">
+          <div class="password-input-group">
+            <input 
+              type="password" 
+              id="gatePasswordInput" 
+              class="gate-input" 
+              placeholder="أدخل كلمة المرور..." 
+              required
+              autocomplete="current-password"
+            >
+            <button type="button" id="togglePasswordView" class="toggle-password-btn" aria-label="إظهار كلمة المرور">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="gate-hint">
+            <span>💡 تلميح:</span> كلمة المرور هي تاريخ يوم الفرح (29/10/2026)
+          </div>
+
+          <p id="gateErrorMsg" class="alert-feedback alert-error" style="margin-bottom: 20px;"></p>
+
+          <button type="submit" class="btn-luxury-primary" style="width: 100%;">
+            <span>دخول سجل الذكريات</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </button>
+        </form>
+
+        <a href="index.html" class="gate-back-link">← العودة لصفحة الدعوة الرئيسية</a>
+      </div>
+    </section>
+
+    <!-- 2. محتوى صفحة الذكريات بعد تسجيل الدخول (Memory Wall) -->
+    <section id="memoryWallContent" class="memory-content-area" style="display: none;">
+      <div class="container">
+        
+        <!-- لوحة الرأس والإحصائيات -->
+        <div class="memory-header-banner">
+          <div class="memory-top-nav">
+            <a href="index.html" class="btn-back-invitation">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+              </svg>
+              <span>صفحة الدعوة الرئيسية</span>
+            </a>
+
+            <div class="session-actions">
+              <span style="font-size: 0.85rem; color: var(--color-gold-light);">
+                💍 مرحباً يوسف &amp; نورهان
+              </span>
+              <button id="btnLockSession" class="btn-session-lock">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                  <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+                <span>قفل الصفحة</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="memory-hero-info">
+            <h2 class="memory-hero-title">سجل الذكريات وتهاني الأحباب</h2>
+            <p class="memory-hero-subtitle">
+              جميع الرسائل والدعوات الطيبة التي خطّها الأهل والأصدقاء بمناسبة زفافكما الميمون 🤍
+            </p>
+
+            <div class="memory-stats-grid">
+              <div class="stat-item">
+                <div class="stat-num" id="statTotalWishes">0</div>
+                <div class="stat-label">إجمالي التهاني</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" id="statFamilyWishes">0</div>
+                <div class="stat-label">رسائل العائلة</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num" id="statFriendsWishes">0</div>
+                <div class="stat-label">رسائل الأصدقاء</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- شريط أدوات البحث والتصدير -->
+        <div class="memory-toolbar">
+          <div class="memory-search-box">
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+            <input 
+              type="text" 
+              id="memorySearchInput" 
+              class="memory-search-input" 
+              placeholder="ابحث بالاسم أو بكلمات التهنئة..."
+            >
+          </div>
+
+          <div class="memory-toolbar-actions">
+            <button id="btnPrintAlbum" class="btn-tool" title="طباعة أو حفظ كملف PDF">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+              </svg>
+              <span>طباعة ألبوم الذكريات</span>
+            </button>
+
+            <button id="btnExportJson" class="btn-tool" title="تصدير نسخة احتياطية من جميع الرسائل">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+              </svg>
+              <span>تصدير نسخة (JSON)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- شبكة بطاقات الذكريات والتهاني -->
+        <div id="memoryCardsContainer" class="memory-cards-grid">
+          <!-- تملأ برمجياً عبر memory.js -->
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- زر تشغيل الموسيقى الهادئة -->
+  <button id="musicToggleBtn" class="floating-music-btn" aria-label="تشغيل موسيقى الزفاف الهادئة">
+    <span class="music-icon">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+    </span>
+    <span class="music-label">موسيقى هادئة</span>
+  </button>
+
+  <footer class="site-footer" style="margin-top: 80px;">
+    <div class="container">
+      <h3 class="footer-names">يوسف &amp; نورهان</h3>
+      <p class="footer-date">29 . 10 . 2026</p>
+      <div class="footer-copyright">
+        © 2026 حفل زفاف يوسف ونورهان — جميع الحقوق محفوظة
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/audio.js"></script>
+  <script src="js/memory.js"></script>
+</body>
+</html>

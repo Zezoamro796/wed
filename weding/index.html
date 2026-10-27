@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>دعوة زفاف يوسف & نورهان | Yousef & Norhan</title>
+  
+  <!-- Mobile & Theme Tags -->
+  <meta name="theme-color" content="#121d16">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="يتشرف يوسف ونورهان بدعوتكم لحضور حفل زفافهما المبارك يوم الخميس 29/10/2026 في قاعة فور سيزون.">
+  <meta property="og:title" content="دعوة زفاف يوسف & نورهان 💍">
+  <meta property="og:description" content="يسعدنا مشاركتكم فرحتنا يوم الخميس 29/10/2026 بقاعة فور سيزون">
+  <meta property="og:image" content="assets/images/hero-bg.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- خلفية الجزيئات الذهبية المتلألئة -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- شريط التنقل العلوي المتجاوب -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#hero" class="brand-monogram">
+        <div class="monogram-mini">Y&N</div>
+        <span class="brand-text">يوسف & نورهان</span>
+      </a>
+
+      <!-- القائمة لأجهزة الكمبيوتر والتابلت -->
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="#details" class="nav-link">تفاصيل الفرح</a></li>
+          <li><a href="#location" class="nav-link">موقع القاعة</a></li>
+          <li><a href="#guestbook" class="nav-link">كتابة تهنئة</a></li>
+          <li>
+            <a href="memory" class="nav-memory-btn" title="سجل الذكريات للعروسين">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+              <span>سجل الذكريات /memory</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- أدوات التنقل السريع للهواتف الذكية -->
+      <div class="mobile-nav-actions">
+        <a href="memory" class="mobile-memory-pill" title="سجل الذكريات">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+          </svg>
+          <span>الذكريات</span>
+        </a>
+
+        <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="فتح القائمة الرئيسية">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- القائمة الجانبية المنسدلة للهواتف (Mobile Drawer) -->
+    <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-hidden="true">
+      <div class="mobile-drawer-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div class="monogram-mini">Y&N</div>
+          <span class="brand-text">يوسف & نورهان</span>
+        </div>
+        <button id="closeDrawerBtn" class="close-drawer-btn" aria-label="إغلاق القائمة">✕</button>
+      </div>
+
+      <ul class="mobile-drawer-links">
+        <li><a href="#hero" class="mobile-nav-link">🌸 الرئيسية</a></li>
+        <li><a href="#details" class="mobile-nav-link">📅 تفاصيل الموعد والبرنامج</a></li>
+        <li><a href="#location" class="mobile-nav-link">📍 موقع قاعة فور سيزون</a></li>
+        <li><a href="#guestbook" class="mobile-nav-link">✍️ كتابة تهنئة للعروسين</a></li>
+        <li>
+          <a href="memory" class="mobile-nav-link memory-highlight">
+            <span>📖 سجل الذكريات (/memory)</span>
+            <span class="lock-tag">محمي 🔑</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <p>الخميس 29/10/2026 — قاعة فور سيزون</p>
+      </div>
+    </div>
+
+    <!-- طبقة التعتيم الخلفية عند فتح القائمة على الهاتف -->
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+  </header>
+
+  <!-- القسم الرئيسي (Hero Section) -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg-media">
+      <img src="assets/images/hero-bg.jpg" alt="قاعة الزفاف الملكية" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <!-- البسملة والآية الكريمة -->
+      <div class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <p class="quran-verse">
+        «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»
+      </p>
+
+      <!-- الشعار الملكي بحرفي العروسين -->
+      <div class="hero-monogram-frame">
+        <img src="assets/images/monogram.svg" alt="شعار يوسف ونورهان" width="150" height="150">
+      </div>
+
+      <div class="invitation-intro">يتشرف العروسان بدعوتكم لحفل زفافهما</div>
+
+      <!-- أسماء العروسين -->
+      <div class="couple-names-wrap">
+        <span class="groom-name">يوسف</span>
+        <span class="couple-ampersand">&amp;</span>
+        <span class="bride-name">نورهان</span>
+      </div>
+
+      <!-- تاريخ ومكان الحفل -->
+      <div class="wedding-date-tagline">
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
+        </svg>
+        <span>الخميس، 29 أكتوبر 2026</span>
+      </div>
+
+      <div class="wedding-venue-tagline">
+        <span>قاعة فور سيزون (Four Seasons Hall)</span>
+      </div>
+
+      <!-- أزرار التفاعل السريع -->
+      <div class="hero-actions">
+        <a href="#guestbook" class="btn-luxury-primary">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+          </svg>
+          <span>اكتب تهنئتك للعروسين</span>
+        </a>
+
+        <a href="#location" class="btn-luxury-secondary">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          <span>مكان القاعة على الخريطة</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم العداد التنازلي وحفظ التاريخ -->
+  <section class="countdown-section">
+    <div class="container">
+      <div class="countdown-card">
+        <h3 class="countdown-title">
+          <img src="assets/images/rings.svg" alt="خواتم الزفاف" width="36" height="24">
+          <span>الوقت المتبقي حتى ليلة العمر</span>
+        </h3>
+
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <div class="countdown-number" id="cdDays">00</div>
+            <div class="countdown-label">يوم</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="cdHours">00</div>
+            <div class="countdown-label">ساعة</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="cdMinutes">00</div>
+            <div class="countdown-label">دقيقة</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="cdSeconds">00</div>
+            <div class="countdown-label">ثانية</div>
+          </div>
+        </div>
+
+        <div class="save-date-actions">
+          <a id="btnSaveGoogle" class="btn-cal btn-cal-google" href="#">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#4285F4">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+            </svg>
+            <span>حفظ الموعد في تقويم Google</span>
+          </a>
+
+          <a id="btnSaveIcs" class="btn-cal btn-cal-ics" href="#">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            <span>تحميل تقويم آبل / أوتلوك (.ics)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- تفاصيل حفل الزفاف -->
+  <section id="details" class="section-wrapper">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">برنامج الحفل والموعد</span>
+        <h2 class="section-title">تفاصيل ليلة العمر</h2>
+        <img src="assets/images/divider.svg" alt="فاصل زخرفي" class="luxury-divider">
+      </div>
+
+      <div class="event-details-grid">
+        <!-- بطاقة الموعد -->
+        <div class="detail-card">
+          <div class="detail-icon-wrap">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+            </svg>
+          </div>
+          <h3 class="detail-card-title">تاريخ الحفل</h3>
+          <p class="detail-card-info">الخميس 29 أكتوبر 2026</p>
+          <p class="detail-card-sub">تبدأ مراسم الاحتفال في تمام الساعة 8:00 مساءً</p>
+        </div>
+
+        <!-- بطاقة القاعة -->
+        <div class="detail-card">
+          <div class="detail-icon-wrap">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+              <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+            </svg>
+          </div>
+          <h3 class="detail-card-title">قاعة فور سيزون</h3>
+          <p class="detail-card-info">Four Seasons Hall</p>
+          <p class="detail-card-sub">أجواء راقية صُممت لتليق بجمعتكم وفرحتنا</p>
+        </div>
+
+        <!-- بطاقة الحضور -->
+        <div class="detail-card">
+          <div class="detail-icon-wrap">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <h3 class="detail-card-title">حضوركم يشرفنا</h3>
+          <p class="detail-card-info">دعوة عامة للأهل والأحباب</p>
+          <p class="detail-card-sub">تكتمل سعادتنا برؤيتكم ومشاركتكم أسعد لحظاتنا</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- موقع القاعة على الخريطة -->
+  <section id="location" class="section-wrapper" style="background: rgba(203, 161, 53, 0.04);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">كيفية الوصول للقاعة</span>
+        <h2 class="section-title">موقع قاعة فور سيزون</h2>
+        <img src="assets/images/divider.svg" alt="فاصل زخرفي" class="luxury-divider">
+      </div>
+
+      <div class="venue-map-card">
+        <div class="venue-info-pane">
+          <span class="venue-badge">موقع الحفل الرسمي</span>
+          <h3 class="venue-hall-name">قاعة فور سيزون</h3>
+          <p class="venue-desc">
+            يسعدنا استقبالكم في قاعة فور سيزون المجهزة بأرقى التجهيزات لراحتكم وسعادتكم. تتوفر أماكن مخصصة لانتظار السيارات وخدمة استقبال ممتازة.
+          </p>
+
+          <div class="venue-coords-box">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <div>
+              <strong>إحداثيات القاعة:</strong><br>
+              <span style="font-family: monospace; font-size: 0.95rem;">30.571501, 31.472967</span>
+            </div>
+          </div>
+
+          <div>
+            <a href="https://maps.google.com/?q=30.571501,31.472967" target="_blank" rel="noopener noreferrer" class="btn-luxury-primary" style="width: 100%;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/>
+              </svg>
+              <span>فتح الاتجاهات عبر Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="venue-map-pane">
+          <!-- Google Maps Embed for Coordinates: 30.571501, 31.472967 -->
+          <iframe 
+            src="https://maps.google.com/maps?q=30.571501,31.472967&hl=ar&z=15&output=embed"
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="خريطة موقع قاعة فور سيزون">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- سجل التهاني والرسائل التذكارية -->
+  <section id="guestbook" class="guestbook-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">كلماتكم تسعدنا وتبقى في قلوبنا</span>
+        <h2 class="section-title">دفتر التهاني والذكريات</h2>
+        <img src="assets/images/divider.svg" alt="فاصل زخرفي" class="luxury-divider">
+      </div>
+
+      <div class="guestbook-card">
+        <form id="weddingGuestbookForm">
+          <div class="form-group">
+            <label for="guestName" class="form-label">اسمك الكريم *</label>
+            <input type="text" id="guestName" class="form-input" placeholder="اكتب اسمك الكريم هنا..." required>
+          </div>
+
+          <div class="form-group">
+            <label for="guestRelation" class="form-label">صلة القرابة أو الصداقة (اختياري)</label>
+            <select id="guestRelation" class="form-select">
+              <option value="صديق / صديقة">صديق / صديقة</option>
+              <option value="عائلة العريس">عائلة العريس</option>
+              <option value="عائلة العروسة">عائلة العروسة</option>
+              <option value="زميل / زميلة عمل">زميل / زميلة عمل</option>
+              <option value="أهل وأقارب">أهل وأقارب</option>
+              <option value="مهنئ كريم">مهنئ كريم</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="guestMessage" class="form-label">رسالتك التذكارية ودعاؤك للعروسين *</label>
+            <textarea id="guestMessage" class="form-textarea" placeholder="شارك يوسف ونورهان أجمل التهاني والأمنيات الطيبة في ليلة عمرهما..." required></textarea>
+
+            <div class="quick-tags-wrap">
+              <button type="button" class="tag-btn" data-text="ألف مبروك يا أجمل عرسان! 🎉💍">🎉 ألف مبروك</button>
+              <button type="button" class="tag-btn" data-text="بارك الله لكما وبارك عليكما وجمع بينكما في خير ✨">✨ بارك الله لكما</button>
+              <button type="button" class="tag-btn" data-text="بالرفاه والبنين وحياة كلها سعادة وهنا يا رب 🤍">🤍 بالرفاه والبنين</button>
+              <button type="button" class="tag-btn" data-text="فرحتي بيكم متتوصفش، ربنا يسعدكم ويهنيكم دايماً 🥰">🥰 ربنا يهنيكم</button>
+            </div>
+          </div>
+
+          <div class="submit-wrap">
+            <button type="submit" id="btnSubmitWish" class="btn-luxury-primary" style="width: 100%;">
+              <span>إرسال التهنئة للعروسين</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+            </button>
+          </div>
+
+          <div id="feedbackSuccess" class="alert-feedback alert-success"></div>
+          <div id="feedbackError" class="alert-feedback alert-error"></div>
+        </form>
+
+        <!-- رابط الانتقال لصفحة الذكريات المحمية -->
+        <div class="memory-link-banner">
+          <div class="memory-banner-text">
+            <h4>📖 صفحة سجل الذكريات (/memory)</h4>
+            <p>تُعرض كافة رسائل وتهاني الأحباب في صفحة مخصصة للعروسين ومحمية بكلمة مرور.</p>
+          </div>
+          <a href="memory" class="btn-enter-memory">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+            <span>دخول سجل الذكريات</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- زر تشغيل الموسيقى الرومانسية الهادئة -->
+  <button id="musicToggleBtn" class="floating-music-btn" aria-label="تشغيل موسيقى الزفاف الهادئة">
+    <span class="music-icon">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+    </span>
+    <span class="music-label">موسيقى هادئة</span>
+  </button>
+
+  <!-- تذييل الصفحة -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-monogram">
+        <img src="assets/images/monogram.svg" alt="Y & N" width="70" height="70">
+      </div>
+      <h3 class="footer-names">يوسف &amp; نورهان</h3>
+      <p class="footer-date">29 . 10 . 2026</p>
+      <p style="color: rgba(255, 255, 255, 0.7); max-width: 500px; margin: 0 auto 20px; font-size: 0.95rem;">
+        شكراً لكل من يشاركنا فرحتنا بحضوره أو بتهنئته الصادقة.. دمتم لنا ودامت أفراحكم 🤍
+      </p>
+      <div class="footer-copyright">
+        © 2026 حفل زفاف يوسف ونورهان — جميع الحقوق محفوظة
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
