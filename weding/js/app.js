@@ -329,7 +329,7 @@ function initGuestbookForm() {
     if (successAlert) {
       successAlert.innerHTML = `
         <strong>شكراً لك يا ${escapeHTML(guestName)}! 🤍</strong><br>
-        تم حفظ تهنئتك ورسالتك التذكارية للعروسين بنجاح. ستُعرض في صفحة الذكريات.
+        تم إرسال تهنئتكم ودعواتكم الطيبة بنجاح. شكراً لمشاركتكم فرحتنا ومشاعركم الجميلة.
       `;
       successAlert.style.display = 'block';
       setTimeout(() => {

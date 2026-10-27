@@ -72,7 +72,7 @@ function initPasswordGate() {
         passInput.classList.add('shake');
         setTimeout(() => passInput.classList.remove('shake'), 500);
         if (errorText) {
-          errorText.textContent = 'كلمة المرور غير صحيحة، يرجى إدخال تاريخ الخطوبة 29/10/2026';
+          errorText.textContent = 'كلمة المرور غير صحيحة، يرجى المحاولة مرة أخرى.';
           errorText.style.display = 'block';
         }
       }
