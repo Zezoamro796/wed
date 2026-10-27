@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-خادم الويب الاحترافي لموقع دعوة زفاف يوسف ونورهان
-Wedding Invitation & Memory Server for Yousef & Norhan
+خادم الويب الاحترافي لموقع دعوة خطوبة يوسف ونورهان
+Engagement Invitation & Memory Server for Yousef & Norhan
 """
 
 import http.server
@@ -198,7 +198,7 @@ def run():
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), WeddingHTTPRequestHandler) as httpd:
         print("=" * 60)
-        print("💍 موقع دعوة زفاف يوسف ونورهان يعمل الآن بنجاح!")
+        print("💍 موقع دعوة خطوبة يوسف ونورهان يعمل الآن بنجاح!")
         print(f"📍 رابط الدعوة الرئيسي:  http://localhost:{PORT}/")
         print(f"📖 صفحة الذكريات:      http://localhost:{PORT}/memory")
         print(f"🔑 كلمة المرور:         {WEDDING_PASSWORD}")

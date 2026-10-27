@@ -72,7 +72,7 @@ function initPasswordGate() {
         passInput.classList.add('shake');
         setTimeout(() => passInput.classList.remove('shake'), 500);
         if (errorText) {
-          errorText.textContent = 'كلمة المرور غير صحيحة، يرجى إدخال تاريخ الفرح 29/10/2026';
+          errorText.textContent = 'كلمة المرور غير صحيحة، يرجى إدخال تاريخ الخطوبة 29/10/2026';
           errorText.style.display = 'block';
         }
       }
@@ -167,7 +167,7 @@ function getLocalStorageMessages() {
         id: "msg-init-3",
         name: "د. عادل القاضي",
         relation: "صديق العائلة",
-        message: "خالص التهاني القلبية للأستاذ يوسف والأنسة نورهان بمناسبة الزفاف السعيد. بارك الله لكما ورزقكم المحبة والمودة والذرية الصالحة.",
+        message: "خالص التهاني القلبية للأستاذ يوسف والأنسة نورهان بمناسبة الخطوبة السعيدة. بارك الله لكما ورزقكم المحبة والمودة والذرية الصالحة.",
         date: "2026-10-26T18:45:00Z"
       }
     ];

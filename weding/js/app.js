@@ -1,9 +1,9 @@
 /**
- * تطبيق دعوة الزفاف - يوسف ونورهان
- * Yousef & Norhan Wedding Invitation App
+ * تطبيق دعوة الخطوبة - يوسف ونورهان
+ * Yousef & Norhan Engagement Invitation App
  */
 
-// تاريخ الزفاف: الخميس 29 أكتوبر 2026 الساعة 8:00 مساءً
+// تاريخ الخطوبة: الخميس 29 أكتوبر 2026 الساعة 8:00 مساءً
 const WEDDING_DATE = new Date('2026-10-29T20:00:00+03:00');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -182,8 +182,8 @@ function initCalendarButtons() {
   const btnGoogle = document.getElementById('btnSaveGoogle');
   const btnIcs = document.getElementById('btnSaveIcs');
 
-  const title = encodeURIComponent('حفل زفاف يوسف ونورهان 💍');
-  const details = encodeURIComponent('نتشرف بحضوركم لمشاركتنا فرحة العمر في قاعة فور سيزون');
+  const title = encodeURIComponent('حفل خطوبة يوسف ونورهان 💍');
+  const details = encodeURIComponent('نتشرف بحضوركم لمشاركتنا فرحة الخطوبة في قاعة فور سيزون');
   const location = encodeURIComponent('قاعة فور سيزون - https://maps.google.com/?q=30.571501,31.472967');
 
   // Start: 20261029T170000Z (8pm Egypt time UTC+3)
@@ -208,16 +208,16 @@ function downloadIcsFile() {
   const icsData = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Yousef and Norhan Wedding//AR',
+    'PRODID:-//Yousef and Norhan Engagement//AR',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
-    'UID:wedding-yousef-norhan-2026@wedding.com',
+    'UID:engagement-yousef-norhan-2026@engagement.com',
     'DTSTAMP:20261027T000000Z',
     'DTSTART:20261029T170000Z',
     'DTEND:20261029T230000Z',
-    'SUMMARY:حفل زفاف يوسف ونورهان 💍',
-    'DESCRIPTION:نتشرف بحضوركم لمشاركتنا فرحة العمر في قاعة فور سيزون',
+    'SUMMARY:حفل خطوبة يوسف ونورهان 💍',
+    'DESCRIPTION:نتشرف بحضوركم لمشاركتنا فرحة الخطوبة في قاعة فور سيزون',
     'LOCATION:قاعة فور سيزون (30.571501, 31.472967)',
     'STATUS:CONFIRMED',
     'END:VEVENT',
